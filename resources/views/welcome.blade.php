@@ -1,7 +1,7 @@
 @extends('layouts.portfolio')
 
 @section('name')
-    Jacob Wisniewski
+    Jacob Wisniewski <!-- Will change to 'user_id = 1' once login and authentication are added -->
 @endsection
 
 @section('links')
