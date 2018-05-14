@@ -6,6 +6,12 @@
 
 @section ('content')
 
+    @foreach($skills as $skill)
+
+        <li>{{$skill->skill}} - {{$skill->level}}</li>
+
+    @endforeach
+
 
 
 @endsection

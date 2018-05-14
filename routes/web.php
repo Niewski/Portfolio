@@ -44,6 +44,10 @@ Route::get('/admin', function () {
 });
 
 Route::get('/skills', 'SkillsController@index');
+
+Route::get('/skills/create', 'SkillsController@create');
+Route::post('/skills', 'SkillsController@store');
+
 Route::get('/skills/{skill}', 'SkillsController@edit');
 
 
