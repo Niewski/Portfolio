@@ -1,15 +1,21 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.portfolio')
 
-        <title>Portfolio</title>
+@section('name')
+    Jacob Wisniewski
+@endsection
 
-    </head>
-    <body>
+@section('links')
+
+    <a class="nav-link active" href="/">Home</a>
+    <a class="nav-link" href="about">About</a>
+    <a class="nav-link" href="contact">Contact</a>
+
+@endsection
+
+@section('content')
+
         <h1>{{$user}}</h1>
+
         <h2>Employment History</h2>
         @foreach ($employers as $employer)
             <h3>{{$employer->company}}</h3>
@@ -32,5 +38,4 @@
             <li>{{$skill->skill}}</li>
         @endforeach
 
-    </body>
-</html>
+@endsection

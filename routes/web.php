@@ -11,18 +11,43 @@
 |
 */
 
+use App\Users;
+use App\Employment;
+use App\Tasks;
+use App\Education;
+use App\Skills;
+
 Route::get('/', function () {
-    //$user = \App\Users::where('id','=',1)->get();
-    $user = \App\Users::pluck('name')->first();
-    $employers = \App\Employment::where('user_id','=',1)->get();
-    $tasks = \App\Tasks::where('user_id','=',1)->get();
-    $education = \App\Education::where('user_id','=',1)->get();
-    $skills = \App\Skills::where('user_id','=',1)->get();
+    $user = Users::pluck('name')->first();
+    $employers = Employment::all();
+    $tasks = Tasks::all();
+    $education = Education::all();
+    $skills = Skills::all();
 
 
     return view('welcome', compact('user','skills', 'employers', 'tasks', 'education'));
 });
 
-Auth::routes();
+Route::get('/about', function () {
 
-Route::get('/home', 'HomeController@index')->name('home');
+    return view('about');
+});
+
+Route::get('/contact', function () {
+
+    return view('contact');
+});
+
+Route::get('/admin', function () {
+
+    return view('admin');
+});
+
+Route::get('/skills', 'SkillsController@index');
+Route::get('/skills/{skill}', 'SkillsController@edit');
+
+
+
+//Need to edit for authentication
+//Auth::routes();
+//Route::get('/home', 'HomeController@index')->name('home');
